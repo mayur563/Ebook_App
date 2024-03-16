@@ -1,3 +1,5 @@
+<%@page import="com.DB.DBConnect"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,6 +27,7 @@
 	<div class="container-fluid back-img">
 		<h1 class="text-center text-danger">EBook Management System</h1>
 	</div>
+	
 	<!-- Start Recent Book -->
 	<div class="container ">
 		<h3 class="text-center">Recent Book</h3>
@@ -245,5 +248,7 @@
 		</div>
 	</div>
 	<!-- End Old Book     -->
+<%@include file="all_components/footer.jsp" %>
+	
 </body>
 </html>
