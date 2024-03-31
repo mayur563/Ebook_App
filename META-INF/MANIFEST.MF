@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ebook-App
+Bundle-SymbolicName: Ebook-App
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: Ebook-App.jar,
+ mayur/servlet jar/servlet-api.jar,
+ mayur/eclipse-workspace/jakarta.servlet.jsp.jstl-api-2.0.0.jar,
+ mayur/eclipse-workspace/jakarta.servlet.jsp.jstl-2.0.0.jar
+Automatic-Module-Name: Ebook.App
+Bundle-RequiredExecutionEnvironment: JavaSE-18
+Export-Package: com.DAO,
+ com.DB,
+ com.entity,
+ com.user.servlet
