@@ -1,3 +1,4 @@
+
 <div class="container-fluit"
 	style="height: 10px; background-color: #303f9f"></div>
 
@@ -16,10 +17,22 @@
 			</form>
 		</div>
 		<div class="col-md-3">
-			<a href="login.jsp" class="btn btn-success"><i
-				class="fa-solid fa-right-to-bracket"></i>Login</a> <a
-				href="register.jsp" class="btn btn-primary text-white"><i
-				class="fa-regular fa-user"></i>Register</a>
+		
+		<c:if test="${not empty userobj }">
+		<a href="login.jsp" class="btn btn-success"><i
+				class="fas-fa-user"></i>${ userobj.name}</a>
+				 <a href="../register.jsp" class="btn btn-primary text-white"><i
+				class="fas fa-user-plus"></i>Register</a>
+		</c:if>
+		
+		
+		<c:if test="${empty userobj }">
+		<a href="../login.jsp" class="btn btn-success"><i
+				class="fas fa-sign-in-alt"></i>Login</a> 
+			 <a href="../register.jsp" class="btn btn-primary text-white"><i
+				class="fas fa-user-plus"></i>Register</a>
+		</c:if>
+			
 		</div>
 	</div>
 </div>

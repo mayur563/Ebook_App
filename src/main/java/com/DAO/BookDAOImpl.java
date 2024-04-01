@@ -10,6 +10,7 @@ import org.apache.tomcat.jakartaee.commons.lang3.ObjectUtils.Null;
 import org.eclipse.jdt.internal.compiler.ast.WhileStatement;
 
 import com.entity.BookDtls;
+import com.mysql.cj.result.BooleanValueFactory;
 import com.mysql.cj.xdevapi.Result;
 
 public class BookDAOImpl implements BookDAO {
@@ -113,14 +114,46 @@ public class BookDAOImpl implements BookDAO {
 	}
 
 	@Override
-	public boolean updateEditBooks(int id) {
+	public boolean updateEditBooks(BookDtls b) {
 		boolean f=false;
 		try {
-			String sql ="update book_dtls set bookname=?,author=?,price=?,status=?";
+			String sql ="update book_dtls set bookname=?,author=?,price=?,status=? where bookid=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, b.getBookname());
+			ps.setString(2, b.getAuthor());
+			ps.setString(3, b.getPrice());
+			ps.setString(4, b.getStatus());
+			ps.setInt(5, b.getBookid());
+			
+			int i= ps.executeUpdate();
+			if(i==1)
+			{
+				f=true;
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();	
 			}
+		return f;
+	}
+
+	@Override
+	public boolean deleteBooks(int id) {
+		boolean f=false;
+		
+		try {
+			String sql = "delete from book_dtls where bookid=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int i=ps.executeUpdate();
+			if(id == 1){
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return f;
 	}
 	

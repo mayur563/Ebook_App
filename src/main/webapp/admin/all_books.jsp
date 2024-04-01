@@ -4,6 +4,8 @@
 <%@page import="com.DAO.BookDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,18 @@
 <body>
 	<%@include file="navbar.jsp"%>
 	<h3 class="text-center">Hello Admin</h3>
+
+	<c:if test="${not empty succMsg }">
+		<h5 class="text-center text-success">${succMsg }</h5>
+		<c:remove var="succMsg" scope="session" />
+	</c:if>
+
+	<c:if test="${not empty failedMsg }">
+		<h5 class="text-center text-Danger">${failedMsg }</h5>
+		<c:remove var="failedMsg" scope="session" />
+	</c:if>
+
+
 	<table class="table table-striped ">
 		<thead class="bg-primary text-white">
 			<tr>
@@ -42,8 +56,11 @@
 				<td><%=b.getPrice()%></td>
 				<td><%=b.getBookCategory()%></td>
 				<td><%=b.getStatus()%></td>
-				<td><a href="edit_books.jsp?id=<%=b.getBookid() %>" class="btn btn-sm btn-primary">Edit</a> <a
-					href="#" class="btn btn-sm btn-danger">Delete</a></td>
+				<td><a href="edit_books.jsp?id=<%=b.getBookid()%>"
+					class="btn btn-sm btn-primary"><i class="fa-regular fa-pen-to-square"></i>Edit</a> 
+					
+					<a href="../delete?id=<%=b.getBookid()%>"
+					class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i>Delete</a></td>
 			</tr>
 
 			<%
