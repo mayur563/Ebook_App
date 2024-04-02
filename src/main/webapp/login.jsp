@@ -22,6 +22,11 @@
 						<c:remove var="failedmsg" scope="session"/>
 						</c:if>
 						
+						<c:if test="${not empty succMsg }">
+						<h5 class="text-center text-success">${succMsg}</h5>
+						<c:remove var="failedmsg" scope="session"/>
+						</c:if>
+						
 						
 						
 						<form action= "login" method="post">
