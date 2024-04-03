@@ -126,7 +126,7 @@
 
 				<div class="card crd-ho">
 					<div class="card-body text-center">
-						<img alt="" src="book_img/C++.jpg"
+						<img alt="" src="book_img/<%=b.getPhotoName()%>"
 							style="width: 150px; height: 200px" class="img-thumblin">
 						<P><%=b.getBookname()%></P>
 						<p><%=b.getAuthor()%></p>
@@ -136,19 +136,15 @@
 							<a href="" class="btn btn-danger btn-sm ml-2">Add Cart</a> <a
 								href="" class="btn btn-success btn-sm ml-1">View Details</a> <a
 								href="" class="btn btn-danger btn-sm ml-1"><%=b.getPrice()%></a>
+								<i class="fa-solid fa-indian-rupee-sign"></i>
 						</div>
 					</div>
 				</div>
 			</div>
+			</div>
 			<%
 			}
 			%>
-
-
-
-
-
-
 			<div class="text-center mt-1">
 				<a href="" class="btn btn-danger btn-sm text-white">View All</a>
 			</div>
